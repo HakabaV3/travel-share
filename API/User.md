@@ -78,12 +78,11 @@ GET /user/123841292341
 
 - URL
 ```
-POST /user
+POST /user/:userId
 ```
 - body
 ```json
 {
-	"screenName": "kikurage",
 	"name": "きくらげ"
 }
 ```
@@ -98,7 +97,7 @@ POST /user
 		"result": <% User %>
 	}
 	```
-- パラメータのうち、screenNameを送信しなかった場合
+- パラメータのうち、userIdを送信しなかった場合
 	- body
 	```json
 	{
@@ -106,11 +105,11 @@ POST /user
 		"result": {
 			"code": 3,
 			"type": "INVALID_PARAMETER",
-			"detail": [ "screenName" ]
+			"detail": [ "userId" ]
 		}
 	}
 	```
-- screenNameがすでに使用されていた場合
+- userIdがすでに使用されていた場合
 	- body
 	```json
 	{
@@ -118,7 +117,7 @@ POST /user
 		"result": {
 			"code": 4,
 			"type": "ALREADY_CREATED",
-			"detail": [ "screenName" ]
+			"detail": [ "userId" ]
 		}
 	}
 	```

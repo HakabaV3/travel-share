@@ -4,6 +4,8 @@
 
 - [構造](#struct)
 - [API](#api)
+	- [GET /travel](#api-get_travel_all)
+		旅行の情報一覧を取得する
 	- [GET /travel/:travelId](#api-get_travel)
 		旅行の情報を取得する
 	- **[POST /travel](#api-post_travel)※**
@@ -27,6 +29,38 @@
 ```
 
 ## <a name="api"></a>API
+
+### <a name="api-get_travel"></a> GET /travel
+
+旅行の一覧を取得する。
+
+#### リクエスト
+
+- URL
+```
+GET /travel
+```
+
+#### レスポンス
+
+- 成功時
+	- body
+	```json
+	{
+		"status": "OK",
+		"result": [<% Travel %>]
+	}
+	```
+- 成功時(旅行に１つも参加していない場合)
+	- body
+	```json
+	{
+		"status": "OK",
+		"result": []
+	}
+	```
+
+---
 
 ### <a name="api-get_travel"></a> GET /travel/:travelId
 
